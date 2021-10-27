@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 public class BaseCommand {
 
     @ShellMethod(key = "add", value = "求两数之和")
-    public int add(int a, int b) {
+    public int sum(int a, int b) {
         return a + b;
     }
 
