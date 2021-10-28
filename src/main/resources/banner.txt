@@ -20,4 +20,4 @@
                   `^'     \ :/           `^'  `-^-'   \v/ :  \/  YCF
 ${application.title}
 ${application.formatted-version}
-${AnsiColor.BRIGHT_RED}
+${AnsiColor.BRIGHT_MAGENTA}
