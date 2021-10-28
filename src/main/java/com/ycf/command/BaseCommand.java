@@ -1,8 +1,9 @@
 package com.ycf.command;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.shell.standard.ShellCommandGroup;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
-import org.springframework.shell.standard.ShellOption;
 
 import javax.annotation.PostConstruct;
 
@@ -12,26 +13,14 @@ import javax.annotation.PostConstruct;
  * @description TODO
  */
 @ShellComponent
+@ShellCommandGroup("Base")
 public class BaseCommand {
+    @Value("${application.formatted-version}")
+    private String version;
 
-    @ShellMethod(key = "add", value = "求两数之和")
-    public int sum(int a, int b) {
-        return a + b;
-    }
-
-    @ShellMethod(key = "cowsay", value = "奶牛说话")
-    public String cowSay(@ShellOption(defaultValue = "hello cow!", help = "小母牛要说的话") String say,
-                         @ShellOption(value = {"-e", "-eye"}, defaultValue = "oo", help = "小母牛眼睛形状,默认为o") String eyes) {
-        String cow = " __________________\n" +
-                "< %s >\n" +
-                " ------------------\n" +
-                "        \\   ^__^\n" +
-                "         \\  (%s)\\_______\n" +
-                "            (__)\\       )\\/\\\n" +
-                "                ||----w |\n" +
-                "                ||     ||";
-        String format = String.format(cow, say, eyes);
-        return format;
+    @ShellMethod(key = {"cow -v", "cow -version"}, value = "查看版本号.")
+    public String version() {
+        return version;
     }
 
     @PostConstruct

@@ -18,3 +18,6 @@
               )_ \__;      ";"          :_ ;  \_\       `,','
               :__\  \    * `,'*         \  \  :  \   *  8`;'*  *
                   `^'     \ :/           `^'  `-^-'   \v/ :  \/  YCF
+${application.title}
+${application.formatted-version}
+${AnsiColor.BRIGHT_RED}
